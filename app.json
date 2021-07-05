@@ -20,10 +20,22 @@
     },
     "DISCORD_CHANNEL_ID": {
       "description": "Your Discord channel ID (snowflake), i.e. 694927656805859499, where your Bot has access and will post",
-      "required": false
+      "required": true
+    },
+    "BOT_NAME": {
+      "description": "Your bot's name.",
+      "required": true
+    },
+    "BOT_IMG_URL": {
+      "description": "Your bot's profile image url.",
+      "required": true
+    },
+    "BOT_URL": {
+      "description": "Your website address.",
+      "required": true
     },
     "SECONDS": {
-      "description": "How many seconds should we look back for sales on OpenSea. i.e. 3600 for one hour. Running more frequently may get you banned from the OpenSea API",
+      "description": "How many seconds should we look back for sales on OpenSea. i.e. 3600 for one hour. Running more frequently may get you banned from the OpenSea API (Default: 3600, 1 Hour)",
       "required": false
     }
   },
