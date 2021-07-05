@@ -2,7 +2,6 @@ import 'dotenv/config';
 import Discord, { TextChannel } from 'discord.js';
 import fetch from 'node-fetch';
 import { ethers } from "ethers";
-import { parseISO } from 'date-fns'
 
 
 const discordBot = new Discord.Client();
@@ -25,7 +24,7 @@ const buildMessage = (sale: any) => (
 	.setColor('#0099ff')
 	.setTitle(sale.asset.name + ' sold!')
 	.setURL(sale.asset.permalink)
-	.setAuthor('OpenSea Bot', 'https://files.readme.io/566c72b-opensea-logomark-full-colored.png', 'https://github.com/sbauch/opensea-discord-bot')
+	.setAuthor(process.env.BOT_NAME ? process.env.BOT_NAME : 'OpenSea Bot' , process.env.BOT_IMG_URL ? process.env.BOT_IMG_URL : 'https://files.readme.io/566c72b-opensea-logomark-full-colored.png', process.env.URL)
 	.setThumbnail(sale.asset.collection.image_url)
 	.addFields(
 		{ name: 'Name', value: sale.asset.name },
@@ -56,6 +55,7 @@ async function main() {
 
   await Promise.all(
     openSeaResponse?.asset_events?.reverse().map(async (sale: any) => {
+      console.log(sale)
       const message = buildMessage(sale);
       return channel.send(message)
     })
