@@ -65,7 +65,7 @@ async function main() {
         only_opensea: 'false',
         occurred_after: hoursAgo.toString(),
         collection_slug: process.env.COLLECTION_SLUG!,
-        contract_address: process.env.CONTRACT_ADDRESS!,
+        // contract_address: process.env.CONTRACT_ADDRESS!,
       }),
     {
       headers: {
